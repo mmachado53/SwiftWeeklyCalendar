@@ -1,0 +1,16 @@
+PODS:
+  - SwiftWeeklyCalendar (0.1.0)
+
+DEPENDENCIES:
+  - SwiftWeeklyCalendar (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftWeeklyCalendar:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwiftWeeklyCalendar: f0cc66a13e8febfc46997eac69cdfde9efacdb4d
+
+PODFILE CHECKSUM: 33becc0a923430f7efe32c6070d64c80be5c50c2
+
+COCOAPODS: 1.8.4
