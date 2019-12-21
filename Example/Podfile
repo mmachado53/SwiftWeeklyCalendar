@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SwiftWeeklyCalendar_Example' do
+  pod 'SwiftWeeklyCalendar', :path => '../'
+
+  target 'SwiftWeeklyCalendar_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
