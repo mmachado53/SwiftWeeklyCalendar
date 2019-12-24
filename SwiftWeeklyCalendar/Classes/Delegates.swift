@@ -7,15 +7,15 @@
 
 import UIKit
 
-@objc public protocol WeeklyCalendarColectionViewDelegate {
-    func weeklyCalendarColectionView(_ collectionView: WeeklyCalendarColectionView, cellFor date:Date, indexPath:IndexPath) -> UICollectionViewCell
-    func weeklyCalendarColectionView(collectionView: WeeklyCalendarColectionView,changeWeek dates:[Date])
-    func weeklyCalendarColectionView(collectionView: WeeklyCalendarColectionView, didSelectItemAt cellState: Date)
+@objc public protocol WeeklyCalendarCollectionViewDelegate {
+    func weeklyCalendarCollectionView(_ collectionView: WeeklyCalendarCollectionView, cellFor date:Date, indexPath:IndexPath) -> UICollectionViewCell
+    func weeklyCalendarCollectionView(collectionView: WeeklyCalendarCollectionView,changeWeek dates:[Date])
+    func weeklyCalendarCollectionView(collectionView: WeeklyCalendarCollectionView, didSelectItemAt cellState: Date)
 }
 
-@objc public protocol WeeklyCalendarHeaderColectionViewDelegate {
-    func weeklyHeaderCalendarColectionView(_ collectionView: WeeklyHeaderCalendarColectionView, cellFor date:Date, indexPath:IndexPath) -> UICollectionViewCell
+@objc public protocol CalendarHeaderCollectionViewDelegate {
+    func calendarHeaderCollectionView(_ collectionView: CalendarHeaderCollectionView, cellFor date:Date, indexPath:IndexPath) -> UICollectionViewCell
 }
-@objc public protocol WeeklyCalendarHoursColectionViewDelegate {
-    func weeklyCalendarHoursColectionViewDelegate(_ collectionView: WeeklyHoursCalendarColectionView, cellFor hour:Int, indexPath:IndexPath) -> UICollectionViewCell
+@objc public protocol CalendarHoursCollectionViewDelegate {
+    func calendarHoursCollectionView(_ collectionView: CalendarHoursCollectionView, cellFor hour:Int, indexPath:IndexPath) -> UICollectionViewCell
 }

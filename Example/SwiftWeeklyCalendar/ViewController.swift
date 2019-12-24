@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     var eventsPerDay:[String:[SampleEvent]] = [:]
     
     
-    @IBOutlet var calendar:WeeklyCalendarColectionView?
+    @IBOutlet var calendar:WeeklyCalendarCollectionView?
     
     var defaultCalendarWidth:CGFloat?
     
@@ -75,8 +75,8 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController : WeeklyCalendarColectionViewDelegate{
-    func weeklyCalendarColectionView(_ collectionView: WeeklyCalendarColectionView, cellFor date: Date, indexPath: IndexPath) -> UICollectionViewCell {
+extension ViewController : WeeklyCalendarCollectionViewDelegate{
+    func weeklyCalendarCollectionView(_ collectionView: WeeklyCalendarCollectionView, cellFor date: Date, indexPath: IndexPath) -> UICollectionViewCell {
         let cell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         if let bgView:UIView = cell.viewWithTag(54) {
             let weekDay:Int = Calendar.current.component(.weekday, from: date)
@@ -92,7 +92,7 @@ extension ViewController : WeeklyCalendarColectionViewDelegate{
             }
             let keySt:String = key(from: date)
             eventsPerDay[keySt]?.forEach({ (event) in
-                let frame:CGRect = WeeklyCalendarColectionView.Utils.eventViewFrame(inParentWith: collectionView.dayCellSize, startDate: event.startDate, endDate: event.endDate)
+                let frame:CGRect = WeeklyCalendarCollectionView.Utils.eventViewFrame(inParentWith: collectionView.dayCellSize, startDate: event.startDate, endDate: event.endDate)
                 let eventView:UIView = UIView(frame: frame)
                 eventsContainer.addSubview(eventView)
                 eventView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
@@ -103,19 +103,19 @@ extension ViewController : WeeklyCalendarColectionViewDelegate{
         return cell
     }
     
-    func weeklyCalendarColectionView(collectionView: WeeklyCalendarColectionView, changeWeek dates: [Date]) {
+    func weeklyCalendarCollectionView(collectionView: WeeklyCalendarCollectionView, changeWeek dates: [Date]) {
         title = monthDF.string(from: dates.first!)
     }
     
-    func weeklyCalendarColectionView(collectionView: WeeklyCalendarColectionView, didSelectItemAt cellState: Date) {
+    func weeklyCalendarCollectionView(collectionView: WeeklyCalendarCollectionView, didSelectItemAt cellState: Date) {
         
     }
     
     
 }
 
-extension ViewController : WeeklyCalendarHeaderColectionViewDelegate {
-    func weeklyHeaderCalendarColectionView(_ collectionView: WeeklyHeaderCalendarColectionView, cellFor date: Date, indexPath: IndexPath) -> UICollectionViewCell {
+extension ViewController : CalendarHeaderCollectionViewDelegate {
+    func calendarHeaderCollectionView(_ collectionView: CalendarHeaderCollectionView, cellFor date: Date, indexPath: IndexPath) -> UICollectionViewCell {
         let cell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         
         if let label:UILabel = cell.viewWithTag(53) as? UILabel {
@@ -129,8 +129,8 @@ extension ViewController : WeeklyCalendarHeaderColectionViewDelegate {
     
 }
 
-extension ViewController : WeeklyCalendarHoursColectionViewDelegate {
-    func weeklyCalendarHoursColectionViewDelegate(_ collectionView: WeeklyHoursCalendarColectionView, cellFor hour: Int, indexPath: IndexPath) -> UICollectionViewCell {
+extension ViewController : CalendarHoursCollectionViewDelegate {
+    func calendarHoursCollectionView(_ collectionView: CalendarHoursCollectionView, cellFor hour: Int, indexPath: IndexPath) -> UICollectionViewCell {
         let cell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         
         if let label:UILabel = cell.viewWithTag(53) as? UILabel {

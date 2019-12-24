@@ -7,8 +7,8 @@
 
 import UIKit
 
-public class CalendarHoursColectionView: UICollectionView  {
-    @IBOutlet var calendarHoursDelegate:WeeklyCalendarHoursColectionViewDelegate?
+public class CalendarHoursCollectionView: UICollectionView  {
+    @IBOutlet var calendarHoursDelegate:CalendarHoursCollectionViewDelegate?
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)

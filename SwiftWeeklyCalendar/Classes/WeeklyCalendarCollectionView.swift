@@ -7,7 +7,7 @@
 //
 
 import UIKit
-public class WeeklyCalendarColectionView: UICollectionView {
+public class WeeklyCalendarCollectionView: UICollectionView {
     
     fileprivate var dateFormaterForKey:DateFormatter = {
         var df:DateFormatter = DateFormatter()
@@ -36,13 +36,13 @@ public class WeeklyCalendarColectionView: UICollectionView {
     // MARK: - Outlets -
     
     /// Use instead of UICollectionViewDelegate and UICollectionViewDataSource
-    @IBOutlet var calendarDelegate:WeeklyCalendarColectionViewDelegate?
+    @IBOutlet var calendarDelegate:WeeklyCalendarCollectionViewDelegate?
     
     /// Header collectionView
-    @IBOutlet var headerCollectionView:WeeklyHeaderCalendarColectionView?{
+    @IBOutlet var headerCollectionView:CalendarHeaderCollectionView?{
         // MARK: configure headerCollectionView
         didSet{
-            if let headerCollectionView:WeeklyHeaderCalendarColectionView = self.headerCollectionView {
+            if let headerCollectionView:CalendarHeaderCollectionView = self.headerCollectionView {
                 headerCollectionView.delegate = self
                 headerCollectionView.dataSource = self
                 headerCollectionView.isPagingEnabled = false
@@ -55,9 +55,9 @@ public class WeeklyCalendarColectionView: UICollectionView {
     }
     
     // MARK: - configure hoursCollectionView
-    @IBOutlet var hoursCollectionView:WeeklyHoursCalendarColectionView?{
+    @IBOutlet var hoursCollectionView:CalendarHoursCollectionView?{
         didSet{
-            if let hoursCollectionView:WeeklyHoursCalendarColectionView = self.hoursCollectionView {
+            if let hoursCollectionView:CalendarHoursCollectionView = self.hoursCollectionView {
                 hoursCollectionView.delegate = self
                 hoursCollectionView.dataSource = self
                 hoursCollectionView.isPagingEnabled = false
@@ -169,7 +169,7 @@ public class WeeklyCalendarColectionView: UICollectionView {
             for i in 1...6 {
                 visibleDates.append(Calendar.current.date(byAdding: .day, value: i, to: date)!)
             }
-            self.calendarDelegate?.weeklyCalendarColectionView(collectionView: self, changeWeek: visibleDates)
+            self.calendarDelegate?.weeklyCalendarCollectionView(collectionView: self, changeWeek: visibleDates)
             self.currentIndexPath = IndexPath(row: dayOfWeek-1, section: self.currentSection )
             self.scrollToItem(at: self.currentIndexPath, at: .left, animated: false)
         }
@@ -193,7 +193,7 @@ public class WeeklyCalendarColectionView: UICollectionView {
             for i in 1...6 {
                 visibleDates.append(Calendar.current.date(byAdding: .day, value: i, to: firstVisibleDate)!)
             }
-            self.calendarDelegate?.weeklyCalendarColectionView(collectionView: self, changeWeek: visibleDates)
+            self.calendarDelegate?.weeklyCalendarCollectionView(collectionView: self, changeWeek: visibleDates)
             self.currentIndexPath = firstVisibleIndexPath
         }
     }
@@ -215,7 +215,7 @@ public class WeeklyCalendarColectionView: UICollectionView {
             return currentWeekStates[indexPath.row]
         }
         
-        var currentWeekDates:[Date] = WeeklyCalendarColectionView.getWeek(of: sectionInitialWeekDay)
+        var currentWeekDates:[Date] = WeeklyCalendarCollectionView.getWeek(of: sectionInitialWeekDay)
         self.cellDatesCache[cacheKey] = currentWeekDates
         return currentWeekDates[indexPath.row]
     }
@@ -261,7 +261,7 @@ public class WeeklyCalendarColectionView: UICollectionView {
 }
 
 // MARK: - Delegates - manage standard collectionview delegates for weekly, hours and header collectionviews
-extension WeeklyCalendarColectionView : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension WeeklyCalendarCollectionView : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -287,16 +287,16 @@ extension WeeklyCalendarColectionView : UICollectionViewDelegate, UICollectionVi
         if collectionView == self {
             let date = self.getDateFromIndexPath(indexPath)
             if let cell =
-                self.calendarDelegate?.weeklyCalendarColectionView(self, cellFor: date, indexPath: indexPath) {
+                self.calendarDelegate?.weeklyCalendarCollectionView(self, cellFor: date, indexPath: indexPath) {
                 return cell
             }
-        }else if let headerCollectionView:WeeklyHeaderCalendarColectionView = collectionView as? WeeklyHeaderCalendarColectionView{
+        }else if let headerCollectionView:CalendarHeaderCollectionView = collectionView as? CalendarHeaderCollectionView{
             let date = self.getDateFromIndexPath(indexPath)
-            if let cell = headerCollectionView.calendarHeaderDelegate?.weeklyHeaderCalendarColectionView(headerCollectionView, cellFor: date, indexPath: indexPath) {
+            if let cell = headerCollectionView.calendarHeaderDelegate?.calendarHeaderCollectionView(headerCollectionView, cellFor: date, indexPath: indexPath) {
                 return cell
             }
-        }else if let hoursCollectionView:WeeklyHoursCalendarColectionView = collectionView as? WeeklyHoursCalendarColectionView{
-            if let cell = hoursCollectionView.calendarHoursDelegate?.weeklyCalendarHoursColectionViewDelegate(hoursCollectionView, cellFor: indexPath.row, indexPath: indexPath) {
+        }else if let hoursCollectionView:CalendarHoursCollectionView = collectionView as? CalendarHoursCollectionView{
+            if let cell = hoursCollectionView.calendarHoursDelegate?.calendarHoursCollectionView(hoursCollectionView, cellFor: indexPath.row, indexPath: indexPath) {
                 cell.clipsToBounds = false
                 return cell
             }
@@ -320,7 +320,7 @@ extension WeeklyCalendarColectionView : UICollectionViewDelegate, UICollectionVi
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView != self { return }
-        self.calendarDelegate?.weeklyCalendarColectionView(collectionView: self, didSelectItemAt: self.getDateFromIndexPath(indexPath))
+        self.calendarDelegate?.weeklyCalendarCollectionView(collectionView: self, didSelectItemAt: self.getDateFromIndexPath(indexPath))
     }
     
     
@@ -349,9 +349,9 @@ fileprivate class VerticalCollectionViewLayout : BaseWeeklyCalendarCollectionVie
 
 fileprivate class  WeeklyCalendarCollectionViewLayout : BaseWeeklyCalendarCollectionViewLayout {
     
-    var weeklyCalendar:WeeklyCalendarColectionView? {
+    var weeklyCalendar:WeeklyCalendarCollectionView? {
         get{
-            if let w:WeeklyCalendarColectionView = self.collectionView as? WeeklyCalendarColectionView {
+            if let w:WeeklyCalendarCollectionView = self.collectionView as? WeeklyCalendarCollectionView {
                 return w
             }
             return nil
@@ -394,7 +394,7 @@ fileprivate class  WeeklyCalendarCollectionViewLayout : BaseWeeklyCalendarCollec
     }
     
     func rebuildContenSize(){
-        guard let cv:WeeklyCalendarColectionView = self.weeklyCalendar else { return }
+        guard let cv:WeeklyCalendarCollectionView = self.weeklyCalendar else { return }
         let w:CGFloat = CGFloat(cv.totalSections) * cv.frame.width
         if w != self.contentSize.width {
             // self.paddingTop = cv.paddingTop

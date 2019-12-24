@@ -34,7 +34,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="i60-kR-89p" customClass="WeeklyHoursCalendarColectionView" customModule="SwiftWeeklyCalendar">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="i60-kR-89p" customClass="CalendarHoursCollectionView" customModule="SwiftWeeklyCalendar">
                                 <rect key="frame" x="0.0" y="140" width="1366" height="884"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GdW-55-ift">
@@ -80,7 +80,7 @@
                                     <outlet property="calendarHoursDelegate" destination="voH-2R-dgm" id="Ft3-Zh-xCp"/>
                                 </connections>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EH3-xg-BfN" customClass="WeeklyHeaderCalendarColectionView" customModule="SwiftWeeklyCalendar">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EH3-xg-BfN" customClass="CalendarHeaderCollectionView" customModule="SwiftWeeklyCalendar">
                                 <rect key="frame" x="100" y="70" width="1266" height="70"/>
                                 <color key="backgroundColor" red="0.23921568630000001" green="0.72549019609999998" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -130,7 +130,7 @@
                                     <outlet property="calendarHeaderDelegate" destination="voH-2R-dgm" id="NjN-IX-GWt"/>
                                 </connections>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="d7B-5q-QmS" customClass="WeeklyCalendarColectionView" customModule="SwiftWeeklyCalendar">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="d7B-5q-QmS" customClass="WeeklyCalendarCollectionView" customModule="SwiftWeeklyCalendar">
                                 <rect key="frame" x="100" y="140" width="1266" height="884"/>
                                 <color key="backgroundColor" red="0.94509803920000002" green="0.96470588239999999" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mvy-Pk-0S7">
