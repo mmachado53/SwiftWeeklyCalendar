@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/SwiftWeeklyCalendar.svg?style=flat)](https://cocoapods.org/pods/SwiftWeeklyCalendar)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftWeeklyCalendar.svg?style=flat)](https://cocoapods.org/pods/SwiftWeeklyCalendar)
 
-![preview](readmefiles/weeklyCalendarDemo.gif)
+![preview](readmefiles/demo.gif)
 
 This calendar works like the native iOS weekly calendar, it can be scrolled horizontally and vertically, horizontally if the swipe gesture is long scrolls to the next or previous week, if it is short it scrolls to the next or previous day
 
@@ -33,10 +33,10 @@ mmachado53, mmachado53@gmail.com
 ### Basic concepts
 ![preview](readmefiles/explaining1.png)
 
-#### Class WeeklyCalendarCollectionView
+### Class WeeklyCalendarCollectionView
 WeeklyCalendarCollectionView is the base of the calendar and extends of UICollectionView
 
-#### WeeklyCalendarCollectionView Outlet´s (properties accessible from interface builder)
+### WeeklyCalendarCollectionView Outlet´s (properties accessible from interface builder)
 
 ##### - calendarDelegate:WeeklyCalendarCollectionViewDelegate?
 ##### - headerCollectionView:CalendarHeaderCollectionView?
@@ -44,25 +44,29 @@ WeeklyCalendarCollectionView is the base of the calendar and extends of UICollec
 ##### - customHeightPerHour:CGFloat = -1 (if a different value is not set, it cannot be scrolled vertically)
 ##### - paddingTop:CGFloat = 0
 
-#### WeeklyCalendarCollectionView public properties
+### WeeklyCalendarCollectionView public properties
 
 ##### - dayCellSize:CGSize : is the current size of the cells, width = frame.width / 7, height = customHeightPerHour * 24
 
-#### WeeklyCalendarCollectionView public methods
+### WeeklyCalendarCollectionView public methods
 
 #### - setDate(date:Date) : Navigate to specific Date
 
-#### Class CalendarHeaderCollectionView
+
+
+### Class CalendarHeaderCollectionView
 CalendarHeaderCollectionView is the view where you can show the days of the week and extends of UICollectionView
 
-#### CalendarHeaderCollectionView Outlet´s (properties accessible from interface builder)
+### CalendarHeaderCollectionView Outlet´s (properties accessible from interface builder)
 
 ##### - calendarHeaderDelegate:CalendarHeaderCollectionViewDelegate?
 
-#### Class CalendarHoursCollectionView
+
+
+### Class CalendarHoursCollectionView
 CalendarHoursCollectionView is the view where you can show the hours and extends of UICollectionView
 
-#### CalendarHoursCollectionView Outlet´s (properties accessible from interface builder)
+### CalendarHoursCollectionView Outlet´s (properties accessible from interface builder)
 
 ##### - calendarHoursDelegate:CalendarHoursCollectionViewDelegate?
 
