@@ -38,33 +38,33 @@ WeeklyCalendarCollectionView is the base of the calendar and extends of UICollec
 
 #### WeeklyCalendarCollectionView Outlet´s (properties accessible from interface builder)
 
-##### calendarDelegate:WeeklyCalendarCollectionViewDelegate?
-##### headerCollectionView:CalendarHeaderCollectionView?
-##### hoursCollectionView:CalendarHoursCollectionView?
-##### customHeightPerHour:CGFloat = -1 (if a different value is not set, it cannot be scrolled vertically)
-##### paddingTop:CGFloat = 0
+##### - calendarDelegate:WeeklyCalendarCollectionViewDelegate?
+##### - headerCollectionView:CalendarHeaderCollectionView?
+##### - hoursCollectionView:CalendarHoursCollectionView?
+##### - customHeightPerHour:CGFloat = -1 (if a different value is not set, it cannot be scrolled vertically)
+##### - paddingTop:CGFloat = 0
 
 #### WeeklyCalendarCollectionView public properties
 
-##### dayCellSize:CGSize : is the current size of the cells, width = frame.width / 7, height = customHeightPerHour * 24
+##### - dayCellSize:CGSize : is the current size of the cells, width = frame.width / 7, height = customHeightPerHour * 24
 
 #### WeeklyCalendarCollectionView public methods
 
-#### setDate(date:Date) : Navigate to specific Date
+#### - setDate(date:Date) : Navigate to specific Date
 
 #### Class CalendarHeaderCollectionView
 CalendarHeaderCollectionView is the view where you can show the days of the week and extends of UICollectionView
 
 #### CalendarHeaderCollectionView Outlet´s (properties accessible from interface builder)
 
-##### calendarHeaderDelegate:CalendarHeaderCollectionViewDelegate?
+##### - calendarHeaderDelegate:CalendarHeaderCollectionViewDelegate?
 
 #### Class CalendarHoursCollectionView
 CalendarHoursCollectionView is the view where you can show the hours and extends of UICollectionView
 
 #### CalendarHoursCollectionView Outlet´s (properties accessible from interface builder)
 
-##### calendarHoursDelegate:CalendarHoursCollectionViewDelegate?
+##### - calendarHoursDelegate:CalendarHoursCollectionViewDelegate?
 
 ## Protocols. Delegate´s usage
 
