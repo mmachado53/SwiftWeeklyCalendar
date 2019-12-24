@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Gsh-uX-tuo">
-    <device id="ipad12_9" orientation="portrait">
+    <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="Gsh-uX-tuo" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PG6-5i-ndX">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="1366" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -31,11 +31,11 @@
             <objects>
                 <viewController id="voH-2R-dgm" customClass="ViewController" customModule="SwiftWeeklyCalendar_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l7k-9H-gA7">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="i60-kR-89p" customClass="WeeklyHoursCalendarColectionView" customModule="SwiftWeeklyCalendar">
-                                <rect key="frame" x="0.0" y="140" width="1024" height="1226"/>
+                                <rect key="frame" x="0.0" y="140" width="1366" height="884"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GdW-55-ift">
                                     <size key="itemSize" width="100" height="50"/>
@@ -81,7 +81,7 @@
                                 </connections>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EH3-xg-BfN" customClass="WeeklyHeaderCalendarColectionView" customModule="SwiftWeeklyCalendar">
-                                <rect key="frame" x="100" y="70" width="924" height="70"/>
+                                <rect key="frame" x="100" y="70" width="1266" height="70"/>
                                 <color key="backgroundColor" red="0.23921568630000001" green="0.72549019609999998" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="3hC-60-5TB"/>
@@ -131,7 +131,7 @@
                                 </connections>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="d7B-5q-QmS" customClass="WeeklyCalendarColectionView" customModule="SwiftWeeklyCalendar">
-                                <rect key="frame" x="100" y="140" width="924" height="1226"/>
+                                <rect key="frame" x="100" y="140" width="1266" height="884"/>
                                 <color key="backgroundColor" red="0.94509803920000002" green="0.96470588239999999" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mvy-Pk-0S7">
                                     <size key="itemSize" width="50" height="50"/>
@@ -207,7 +207,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0J6-4A-zW5">
-                                <rect key="frame" x="968" y="1326" width="46" height="30"/>
+                                <rect key="frame" x="1310" y="984" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
                         </subviews>
